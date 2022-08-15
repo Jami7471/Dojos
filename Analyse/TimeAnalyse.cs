@@ -8,19 +8,33 @@ namespace Analyse
     {
         private void GiveTimeAndOutput(string resulText, List<TimeSpan> times, string? result, int countOfLoops)
         {
-            TimeSpan maxTime = times.Max();
-            TimeSpan minTime = times.Min();
-
-            double averageMilliseconds = 0;
-
-            foreach (TimeSpan time in times)
+            if (times == null || times.Count == 0)
             {
-                averageMilliseconds += time.TotalMilliseconds;
+                string output = "No time available for logging";
+                Console.WriteLine(output);
+
+                using (StreamWriter sw = new StreamWriter(Path.Combine(AppContext.BaseDirectory, $"{nameof(TimeAnalyse)}_Output.txt"), true))
+                {
+                    sw.WriteLine(output);
+                    sw.Flush();
+                }
             }
+            else
+            {
+                TimeSpan maxTime = times.Max();
+                TimeSpan minTime = times.Min();
 
-            averageMilliseconds /= countOfLoops;
+                double averageMilliseconds = 0;
 
-            LogTime(resulText, result, maxTime, minTime, averageMilliseconds, countOfLoops);
+                foreach (TimeSpan time in times)
+                {
+                    averageMilliseconds += time.TotalMilliseconds;
+                }
+
+                averageMilliseconds /= countOfLoops;
+
+                LogTime(resulText, result, maxTime, minTime, averageMilliseconds, countOfLoops);
+            }
         }
 
         private void LogTime(string resulText, string? result, TimeSpan maxTime, TimeSpan minTime, double averageMilliseconds, int countOfLoops)
