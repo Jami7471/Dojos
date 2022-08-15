@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2015
 {
-    public class Task03 : BaseTask
+    public sealed class Task03 : BaseTask
     {
         /*         
         --- Day 3: Perfectly Spherical Houses in a Vacuum ---
@@ -40,8 +40,6 @@ namespace AdventOfCode.Year2015
             - ^v^v^v^v^v now delivers presents to 11 houses, with Santa going one direction and Robo-Santa going the other
 
          */
-
-
 
         public override string Part1()
         {

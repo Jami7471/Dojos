@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2015
 {
-    public class Task02 : BaseTask
+    public sealed class Task02 : BaseTask
     {
         /*
          --- Day 2: I Was Told There Would Be No Math ---

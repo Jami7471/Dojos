@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2015
 {
-    public class Task07 : BaseTask
+    public sealed class Task07 : BaseTask
     {
         /*
         --- Day 7: Some Assembly Required ---
@@ -121,7 +121,7 @@ namespace AdventOfCode.Year2015
             RSHIFT = 5
         }
 
-        private class Instruction
+        private sealed class Instruction
         {
             public Instruction(InstructionOption instructionOption, string[] values)
             {

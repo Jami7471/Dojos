@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2015
 {
-    public class Task06 : BaseTask
+    public sealed class Task06 : BaseTask
     {
         /*
         --- Day 6: Probably a Fire Hazard ---

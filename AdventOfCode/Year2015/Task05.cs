@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2015
 {
-    public class Task05 : BaseTask
+    public sealed class Task05 : BaseTask
     {
         /*
         --- Day 5: Doesn't He Have Intern-Elves For This? ---

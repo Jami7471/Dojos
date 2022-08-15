@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Analyse
 {
-    public class TimeAnalyse
+    public sealed class TimeAnalyse
     {
         private void GiveTimeAndOutput(string resulText, List<TimeSpan> times, string? result, int countOfLoops)
         {

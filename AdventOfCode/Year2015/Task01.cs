@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2015
 {
-    public class Task01 : BaseTask
+    public sealed class Task01 : BaseTask
     {
         /*         
         --- Day 1: Not Quite Lisp ---
@@ -45,7 +45,6 @@ namespace AdventOfCode.Year2015
         Task: What is the position of the character that causes Santa to first enter the basement?
         Solution: 1795
          */
-
 
         public override string Part1()
         {

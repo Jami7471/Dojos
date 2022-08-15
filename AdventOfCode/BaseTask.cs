@@ -8,8 +8,6 @@ namespace AdventOfCode
 {
     public class BaseTask
     {
-        //inputFilePart =  @"Year201x\Input\Inputx.txt"
-
         internal string ReadInputToEnd(string inputFilePart)
         {
             string txtFile = Path.Combine(AppContext.BaseDirectory, inputFilePart);

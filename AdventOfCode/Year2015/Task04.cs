@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2015
 {
-    public class Task04 : BaseTask
+    public sealed class Task04 : BaseTask
     {
         /*
         --- Day 4: The Ideal Stocking Stuffer ---

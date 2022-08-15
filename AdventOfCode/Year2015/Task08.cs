@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2015
 {
-    public class Task08 : BaseTask
+    public sealed class Task08 : BaseTask
     {
         /*
         --- Day 8: Matchsticks ---
