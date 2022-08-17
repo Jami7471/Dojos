@@ -8,6 +8,10 @@ using Analyse;
 
 
 TimeAnalyse timeAnalyse = new TimeAnalyse();
+timeAnalyse.AllLoopOfMethodFinished += TimeAnalyse_AllLoopOfMethodFinished;
+timeAnalyse.LoopOfMethodFinished += TimeAnalyse_LoopOfMethodFinished;
+
+
 //timeAnalyse.DoAll("2015.10", typeof(AdventOfCode.Year2015.Task10), 100);
 
 
@@ -46,34 +50,34 @@ while (end == false)
                 switch (day)
                 {
                     case 1:
-                        timeAnalyse.DoAll("2015.01", typeof(AdventOfCode.Year2015.Task01));
+                        timeAnalyse.DoAllPublicMethods("2015.01", typeof(AdventOfCode.Year2015.Task01));
                         break;
                     case 2:
-                        timeAnalyse.DoAll("2015.02", typeof(AdventOfCode.Year2015.Task02));
+                        timeAnalyse.DoAllPublicMethods("2015.02", typeof(AdventOfCode.Year2015.Task02));
                         break;
                     case 3:
-                        timeAnalyse.DoAll("2015.03", typeof(AdventOfCode.Year2015.Task03));
+                        timeAnalyse.DoAllPublicMethods("2015.03", typeof(AdventOfCode.Year2015.Task03));
                         break;
                     case 4:
-                        timeAnalyse.DoAll("2015.04", typeof(AdventOfCode.Year2015.Task04), 10);
+                        timeAnalyse.DoAllPublicMethods("2015.04", typeof(AdventOfCode.Year2015.Task04), 10);
                         break;
                     case 5:
-                        timeAnalyse.DoAll("2015.05", typeof(AdventOfCode.Year2015.Task05));
+                        timeAnalyse.DoAllPublicMethods("2015.05", typeof(AdventOfCode.Year2015.Task05));
                         break;
                     case 6:
-                        timeAnalyse.DoAll("2015.06", typeof(AdventOfCode.Year2015.Task06), 100);
+                        timeAnalyse.DoAllPublicMethods("2015.06", typeof(AdventOfCode.Year2015.Task06), 100);
                         break;
                     case 7:
-                        timeAnalyse.DoAll("2015.07", typeof(AdventOfCode.Year2015.Task07));
+                        timeAnalyse.DoAllPublicMethods("2015.07", typeof(AdventOfCode.Year2015.Task07));
                         break;
                     case 8:
-                        timeAnalyse.DoAll("2015.08", typeof(AdventOfCode.Year2015.Task08));
+                        timeAnalyse.DoAllPublicMethods("2015.08", typeof(AdventOfCode.Year2015.Task08));
                         break;
                     case 9:
-                        timeAnalyse.DoAll("2015.09", typeof(AdventOfCode.Year2015.Task09), 10);
+                        timeAnalyse.DoAllPublicMethods("2015.09", typeof(AdventOfCode.Year2015.Task09), 10);
                         break;
                     case 10:
-                        timeAnalyse.DoAll("2015.10", typeof(AdventOfCode.Year2015.Task10), 100);
+                        timeAnalyse.DoAllPublicMethods("2015.10", typeof(AdventOfCode.Year2015.Task10), 100);
                         break;
                     default:
                         if (line?.ToLower() == "cu")
@@ -102,3 +106,12 @@ while (end == false)
     }
 }
 
+void TimeAnalyse_LoopOfMethodFinished(object sender, TimeAnalyseEventArgs e)
+{
+    Console.WriteLine($"{e.Title}: Loop '{e.CountOfLoops}' -> {e.ResultText} ({e.ExecutionTime})");
+}
+
+void TimeAnalyse_AllLoopOfMethodFinished(object sender, TimeAnalyseEventArgs e)
+{
+    Console.WriteLine($"{e.ResultText}");
+}
