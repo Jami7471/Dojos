@@ -9,12 +9,12 @@ using Analyse;
 
 TimeAnalyse timeAnalyse = new TimeAnalyse();
 timeAnalyse.AllLoopOfMethodFinished += TimeAnalyse_AllLoopOfMethodFinished;
-timeAnalyse.LoopOfMethodFinished += TimeAnalyse_LoopOfMethodFinished;
-timeAnalyse.MethodsFinished += TimeAnalyse_MethodsFinished;
+//timeAnalyse.LoopOfMethodFinished += TimeAnalyse_LoopOfMethodFinished;
+//timeAnalyse.MethodsFinished += TimeAnalyse_MethodsFinished;
 
 
 // _ = timeAnalyse.DoAllPublicMethodsAsync("2015.10", typeof(AdventOfCode.Year2015.Task10), 100);
-
+timeAnalyse.DoAllPublicMethods("2015.11", typeof(AdventOfCode.Year2015.Task11), 100);
 
 
 
@@ -46,7 +46,7 @@ while (end == false)
     {
         if (year == 2015)
         {
-            Console.WriteLine("Give me a day  (1-10):");
+            Console.WriteLine("Give me a day  (1-11):");
             line = Console.ReadLine();
 
             if (int.TryParse(line, out int day))
@@ -83,6 +83,9 @@ while (end == false)
                     case 10:
                         timeAnalyse.DoAllPublicMethods("2015.10", typeof(AdventOfCode.Year2015.Task10), 100);
                         break;
+                    case 11:
+                        timeAnalyse.DoAllPublicMethods("2015.11", typeof(AdventOfCode.Year2015.Task10), 100);
+                        break;
                     default:
                         if (line?.ToLower() == "cu")
                         {
@@ -110,17 +113,17 @@ while (end == false)
     }
 }
 
-void TimeAnalyse_LoopOfMethodFinished(object sender, TimeAnalyseEventArgs e)
-{
-    Console.WriteLine($"{e.Title}: Loop '{e.CountOfLoops}' -> {e.ResultText} ({e.ExecutionTime})");
-}
-
 void TimeAnalyse_AllLoopOfMethodFinished(object sender, TimeAnalyseEventArgs e)
 {
     Console.WriteLine($"{e.ResultText}");
 }
 
-void TimeAnalyse_MethodsFinished(object sender, TimeAnalyseEventArgs e)
-{
-   
-}
+//void TimeAnalyse_LoopOfMethodFinished(object sender, TimeAnalyseEventArgs e)
+//{
+//    Console.WriteLine($"{e.Title}: Loop '{e.CountOfLoops}' -> {e.ResultText} ({e.ExecutionTime})");
+//}
+
+//void TimeAnalyse_MethodsFinished(object sender, TimeAnalyseEventArgs e)
+//{
+
+//}
