@@ -142,6 +142,8 @@ namespace Analyse
             {
                 DoMethod($"{title}.{methodNames[i]}", type, methodNames[i], countOfLoops);
             }
+
+            OnMethodsFinished(title, type, string.Empty, countOfLoops, string.Empty, string.Empty);
         }
 
         public void DoAllPublicMethods(string title, Type type, int countOfLoops = 1000)
@@ -156,10 +158,29 @@ namespace Analyse
             {
                 DoMethod($"{title}.{methods[i].Name}", type, methods[i].Name, countOfLoops);
             }
+
+            OnMethodsFinished(title, type, string.Empty, countOfLoops, string.Empty, string.Empty);
         }
+
+        public async Task DoMethodAsync(string title, Type type, string methodName, int countOfLoops = 1000)
+        {
+            await Task.Run(() => DoMethod(title, type, methodName, countOfLoops));
+        }
+
+        public async Task DoMethodsAsync(string title, Type type, string[] methodNames, int countOfLoops = 1000)
+        {
+            await Task.Run(() => DoMethods(title, type, methodNames, countOfLoops));
+        }
+
+        public async Task DoAllPublicMethodsAsync(string title, Type type, int countOfLoops = 1000)
+        {
+            await Task.Run(() => DoAllPublicMethods(title, type, countOfLoops));
+        }
+
 
         public event TimeAnalyseEventHandler? AllLoopOfMethodFinished;
         public event TimeAnalyseEventHandler? LoopOfMethodFinished;
+        public event TimeAnalyseEventHandler? MethodsFinished;
 
         private void OnAllLoopOfMethodFinished(string title, Type type, string methodName, int countOfLoops, string executionTime, string resultText)
         {
@@ -174,6 +195,11 @@ namespace Analyse
             }
 
             LoopOfMethodFinished?.Invoke(this, new TimeAnalyseEventArgs(title, type, methodName, countOfLoops, executionTime, resultText));
+        }
+
+        private void OnMethodsFinished(string title, Type type, string methodName, int countOfLoops, string executionTime, string resultText)
+        {
+            MethodsFinished?.Invoke(this, new TimeAnalyseEventArgs(title, type, methodName, countOfLoops, executionTime, resultText));
         }
     }
 }

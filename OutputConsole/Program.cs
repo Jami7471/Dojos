@@ -10,12 +10,16 @@ using Analyse;
 TimeAnalyse timeAnalyse = new TimeAnalyse();
 timeAnalyse.AllLoopOfMethodFinished += TimeAnalyse_AllLoopOfMethodFinished;
 timeAnalyse.LoopOfMethodFinished += TimeAnalyse_LoopOfMethodFinished;
+timeAnalyse.MethodsFinished += TimeAnalyse_MethodsFinished;
 
 
-//timeAnalyse.DoAll("2015.10", typeof(AdventOfCode.Year2015.Task10), 100);
+// _ = timeAnalyse.DoAllPublicMethodsAsync("2015.10", typeof(AdventOfCode.Year2015.Task10), 100);
 
 
-bool end = false;
+
+
+
+bool end = true;
 
 while (end == false)
 {
@@ -114,4 +118,9 @@ void TimeAnalyse_LoopOfMethodFinished(object sender, TimeAnalyseEventArgs e)
 void TimeAnalyse_AllLoopOfMethodFinished(object sender, TimeAnalyseEventArgs e)
 {
     Console.WriteLine($"{e.ResultText}");
+}
+
+void TimeAnalyse_MethodsFinished(object sender, TimeAnalyseEventArgs e)
+{
+   
 }
