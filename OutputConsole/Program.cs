@@ -14,7 +14,7 @@ timeAnalyse.AllLoopOfMethodFinished += TimeAnalyse_AllLoopOfMethodFinished;
 
 
 // _ = timeAnalyse.DoAllPublicMethodsAsync("2015.10", typeof(AdventOfCode.Year2015.Task10), 100);
-timeAnalyse.DoAllPublicMethods("2015.11", typeof(AdventOfCode.Year2015.Task11), 100);
+timeAnalyse.DoAllPublicMethods("2015.12", typeof(AdventOfCode.Year2015.Task12), 1);
 
 
 
@@ -46,7 +46,7 @@ while (end == false)
     {
         if (year == 2015)
         {
-            Console.WriteLine("Give me a day  (1-11):");
+            Console.WriteLine("Give me a day  (1-12):");
             line = Console.ReadLine();
 
             if (int.TryParse(line, out int day))
@@ -84,7 +84,10 @@ while (end == false)
                         timeAnalyse.DoAllPublicMethods("2015.10", typeof(AdventOfCode.Year2015.Task10), 100);
                         break;
                     case 11:
-                        timeAnalyse.DoAllPublicMethods("2015.11", typeof(AdventOfCode.Year2015.Task10), 100);
+                        timeAnalyse.DoAllPublicMethods("2015.11", typeof(AdventOfCode.Year2015.Task11), 100);
+                        break;
+                    case 12:
+                        timeAnalyse.DoAllPublicMethods("2015.12", typeof(AdventOfCode.Year2015.Task12));
                         break;
                     default:
                         if (line?.ToLower() == "cu")
