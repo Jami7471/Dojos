@@ -48,7 +48,7 @@ namespace AdventOfCode.Year2015
         So, with the new scoring system, Dancer would win (if the race ended at 1000 seconds).
 
         Task: Again given the descriptions of each reindeer (in your puzzle input), after exactly 2503 seconds, how many points does the winning reindeer have?
-        Solution: 
+        Solution: 1059
 
         */
 
