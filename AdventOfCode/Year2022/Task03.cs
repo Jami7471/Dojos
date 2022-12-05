@@ -202,86 +202,86 @@ namespace AdventOfCode.Year2022
             // Uppercase item types A through Z have priorities 27 through 52.
             return (int)c + 27 - (int)'A';
         }
-    }
-
-    public class BackpackGroup
-    {
-        private List<Backpack> _backpacks = new();
-
-        public List<Backpack> Backpacks
+      
+        public class BackpackGroup
         {
-            get { return _backpacks; }
-            set { _backpacks = value; }
-        }
+            private List<Backpack> _backpacks = new();
 
-        private char? _badge;
-
-        public char? Badge
-        {
-            get
+            public List<Backpack> Backpacks
             {
-                if (_badge == null)
-                {
-                    _badge = GetBadge();
-                }
-
-                return _badge;
+                get { return _backpacks; }
+                set { _backpacks = value; }
             }
-        }
 
-        private char GetBadge()
-        {
-            foreach (char c in _backpacks[0].CompartmentAll)
+            private char? _badge;
+
+            public char? Badge
             {
-                if (_backpacks[1].CompartmentAll.Contains(c) && _backpacks[2].CompartmentAll.Contains(c))
+                get
                 {
-                    return c;
+                    if (_badge == null)
+                    {
+                        _badge = GetBadge();
+                    }
+
+                    return _badge;
                 }
             }
 
-            return ' ';
-        }
-    }
-
-    public class Backpack
-    {
-        public Backpack(string content)
-        {
-            CompartmentAll = content;
-            Compartment1 = content.Substring(0, content.Length / 2);
-            Compartment2 = content.Substring(content.Length / 2);
-        }
-
-        public string CompartmentAll { get; set; }
-
-        public string Compartment1 { get; set; }
-
-        public string Compartment2 { get; set; }
-
-        private List<char>? _itemTypes;
-
-        public List<char> ItemTypes
-        {
-            get
+            private char GetBadge()
             {
-                if (_itemTypes == null)
+                foreach (char c in _backpacks[0].CompartmentAll)
                 {
-                    _itemTypes = new();
-                    CompareItemTypes();
+                    if (_backpacks[1].CompartmentAll.Contains(c) && _backpacks[2].CompartmentAll.Contains(c))
+                    {
+                        return c;
+                    }
                 }
 
-                return _itemTypes;
+                return ' ';
             }
         }
 
-
-        private void CompareItemTypes()
+        public class Backpack
         {
-            foreach (char c in Compartment1)
+            public Backpack(string content)
             {
-                if (Compartment2.Contains(c) && _itemTypes?.Contains(c) == false)
+                CompartmentAll = content;
+                Compartment1 = content.Substring(0, content.Length / 2);
+                Compartment2 = content.Substring(content.Length / 2);
+            }
+
+            public string CompartmentAll { get; set; }
+
+            public string Compartment1 { get; set; }
+
+            public string Compartment2 { get; set; }
+
+            private List<char>? _itemTypes;
+
+            public List<char> ItemTypes
+            {
+                get
                 {
-                    _itemTypes.Add(c);
+                    if (_itemTypes == null)
+                    {
+                        _itemTypes = new();
+                        CompareItemTypes();
+                    }
+
+                    return _itemTypes;
+                }
+            }
+
+
+            private void CompareItemTypes()
+            {
+                foreach (char c in Compartment1)
+                {
+                    if (Compartment2.Contains(c) && _itemTypes?.Contains(c) == false)
+                    {
+                        _itemTypes.Add(c);
+                    }
                 }
             }
         }

@@ -118,29 +118,29 @@ namespace AdventOfCode.Year2022
                 }
             }
         }
-    }
 
-    public class Elf
-    {
-        private List<int> _calories = new();
-
-        public List<int> Calories
+        public class Elf
         {
-            get { return _calories; }
-            set { _calories = value; }
-        }
+            private List<int> _calories = new();
 
-        public int TotalCalories
-        {
-            get
+            public List<int> Calories
             {
-                if (_calories == null)
+                get { return _calories; }
+                set { _calories = value; }
+            }
+
+            public int TotalCalories
+            {
+                get
                 {
-                    return 0;
-                }
-                else
-                {
-                    return _calories.Sum();
+                    if (_calories == null)
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        return _calories.Sum();
+                    }
                 }
             }
         }
