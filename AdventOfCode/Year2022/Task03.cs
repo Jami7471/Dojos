@@ -87,7 +87,7 @@ namespace AdventOfCode.Year2022
         here, they are 18 (r) for the first group and 52 (Z) for the second group. The sum of these is 70.
 
         Task: Find the item type that corresponds to the badges of each three-Elf group. What is the sum of the priorities of those item types?
-        Solution: 
+        Solution: 2585
          
         */
 
