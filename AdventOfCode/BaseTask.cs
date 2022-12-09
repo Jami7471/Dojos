@@ -8,14 +8,29 @@ namespace AdventOfCode
 {
     public class BaseTask
     {
+        internal List<T> GetListOf<T>(string inputFilePart)
+        {
+            List<T> result = new();
+            List<string> lines = ReadInputLines(inputFilePart);
+
+            foreach (string line in lines)
+            {
+                T? item = (T?)Activator.CreateInstance(typeof(T), line);
+
+                if (item != null)
+                {
+                    result.Add(item);
+                }
+            }
+
+            return result;
+        }
+
         internal string ReadInputToEnd(string inputFilePart)
         {
             string txtFile = Path.Combine(AppContext.BaseDirectory, inputFilePart);
-
-            using (StreamReader reader = new StreamReader(txtFile))
-            {
-                return reader.ReadToEnd();
-            }
+            using StreamReader reader = new(txtFile);
+            return reader.ReadToEnd();
         }
 
         internal List<string> ReadInputLines(string inputFilePart)
@@ -24,7 +39,7 @@ namespace AdventOfCode
 
             string txtFile = Path.Combine(AppContext.BaseDirectory, inputFilePart);
 
-            using (StreamReader reader = new StreamReader(txtFile))
+            using (StreamReader reader = new(txtFile))
             {
                 string? line = string.Empty;
 
@@ -32,7 +47,7 @@ namespace AdventOfCode
                 {
                     inputTxt.Add(line);
                 }
-            }           
+            }
 
             return inputTxt;
         }

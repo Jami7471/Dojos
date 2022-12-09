@@ -139,6 +139,8 @@ namespace AdventOfCode.Year2022
 
         public override string Part1()
         {
+            // mit Stack<T> Testen?
+
             List<string> input = ReadInputLines(@"Year2022\Input\Input05.txt");
 
             List<int> indexOfStackNumbers = GetIndexOfStackNumbers(input, out int stackNumberLineIndex);
