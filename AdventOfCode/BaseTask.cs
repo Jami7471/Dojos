@@ -52,6 +52,21 @@ namespace AdventOfCode
             return inputTxt;
         }
 
+        internal List<string> ReadTestInputLines()
+        {
+            return ReadInputLines(@"Test.txt");
+        }
+
+        internal string ReadTestInputToEnd()
+        {
+            return ReadInputToEnd(@"Test.txt");
+        }
+
+        internal List<T> GetTestListOf<T>()
+        {
+           return GetListOf<T>(@"Test.txt");
+        }
+
         public virtual string Part1()
         {
             return "NO RESULT";

@@ -73,7 +73,10 @@
     <None Update="Year2022\Input\Input06.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Year2022\Input\Test.txt">
+    <None Update="Year2022\Input\Input08.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Test.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Year2022\Input\Input07.txt">
