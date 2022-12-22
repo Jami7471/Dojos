@@ -14,7 +14,7 @@ timeAnalyse.AllLoopOfMethodFinished += TimeAnalyse_AllLoopOfMethodFinished;
 
 
 // _ = timeAnalyse.DoAllPublicMethodsAsync("2015.10", typeof(AdventOfCode.Year2015.Task10), 100);
-timeAnalyse.DoAllPublicMethods("2022.08", typeof(AdventOfCode.Year2022.Task08));
+timeAnalyse.DoAllPublicMethods("2022.09", typeof(AdventOfCode.Year2022.Task09));
 
 
 
